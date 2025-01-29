@@ -1,0 +1,48 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    border-radius: 5px;
+    padding: 1px;
+    background: rgb(243, 234, 234);
+    text-align: left; /* Align all text to the left */
+    border: 1px solid black; /* Added black border */
+}
+
+.card img {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.card h1 {
+    font-size: 22px;
+    margin: 10px 0;
+    text-align: left; /* Align product name to the left */
+}
+
+.price {
+    color: rgb(219, 75, 75);
+    font-size: 22px;
+    text-align: left; /* Align price to the left */
+    font-weight: bold;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    cursor: pointer;
+    width: 50%;
+    font-size: 18px;
+    border-radius: 20px;
+    display: block;
+    margin: 10px auto; /* Center the button */
+    text-align: center;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
