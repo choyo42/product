@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEAKERS THRIFT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Responsive Navbar -->
+<header>
+    <nav class="navbar">
+        <div class="logo">Sneaker thrift</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger-container">
+            <div class="nav-icons">
+                <div class="cart-container" onclick="openCartModal()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="about">
+    <div class="container">
+        <div class="about-content">
+            <h2>Who We Are</h2>
+            <p>Welcome to Sneaker thrifts, your number one source for all things fashion, electronics, and more. We are dedicated to giving you the best shopping experience with a focus on quality, customer service, and uniqueness.</p>
+        </div>
+    </div>
+</section>
+<section class="mission">
+    <div class="container">
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide high-quality products at the best prices, ensuring customer satisfaction and a seamless shopping experience.</p>
+    </div>
+</section>
+<section class="team">
+    <div class="container">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="member">
+                <h3>Ezekiel Njuguna</h3>
+                <p>Backend developer</p>
+            </div>
+            <div class="member">
+                <h3>Chol Abraham</h3>
+                <p>Frontend developer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="cart-modal" class="cart-modal" style="display: none;">
+    <div class="cart-modal-content">
+        <span class="close-cart-modal" onclick="closeCartModal()">&times;</span>
+        <h2 style="text-align: center;">SHOPPING CART</h2>
+        <div id="cart-items"></div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
+
+<script src="script.js">
+     function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+</script>
+</body>
+</html>

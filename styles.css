@@ -1,0 +1,752 @@
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    font-size: clamp(14px, 1.5vw, 16px);
+    padding-top: 60px;
+}
+
+/* Root Variables for Consistent Styling */
+:root {
+    --card-padding: 10px;
+    --gap: 20px;
+    --font-size: 16px;
+    --button-padding: 8px 12px;
+}
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    padding: 10px 2px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(241, 233, 233);
+    font-size: 1rem;
+    transition: color 0.5s ease;
+}
+
+.nav-links a:hover {
+    color: #f35005;
+}
+
+/* Navbar Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 10px;
+}
+
+.cart-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-container i {
+    font-size: 1.5rem;
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 7px;
+    border-radius: 50%;
+}
+
+.profile-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding: 6px;
+}
+
+/* Product Card Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default: 2 columns */
+    gap: var(--gap);
+    padding: 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Product Card */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    text-align: center;
+    padding: var(--card-padding);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.card img {
+    width: 100%;
+    aspect-ratio: 16/16;
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Product Name */
+.card h1 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Price */
+.card p {
+    font-size: 1em;
+    color: #271b1b;
+    margin-bottom: 15px;
+}
+
+/* Add to Cart Button */
+.card button {
+    background-color: black;
+    color: white;
+    padding: var(--button-padding);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #f35005;
+}
+
+/* Search Bar */
+.search-bar {
+    max-width: 300px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Product Modal Styling */
+.product-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1001;
+}
+
+.product-modal-content {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.product-modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 390px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-modal-content h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.product-modal-content p {
+    font-size: 1rem;
+    color: #444;
+    overflow-wrap: break-word;
+}
+
+/* Product Modal Button */
+.product-modal-content button {
+    background-color: #2b2420;
+    color: white;
+    padding: var(--button-padding);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.product-modal-content button:hover {
+    background-color: #f35005;
+}
+
+/* Close Modal Button */
+.close-modal {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: rgba(238, 55, 55, 0.7);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.close-modal:hover {
+    background: rgba(200, 0, 0, 0.9);
+}
+
+/* Style the cart modal container */
+.cart-modal {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+    padding-top: 20px;
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+/* Center content inside the modal */
+.cart-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden; /* Prevents horizontal overflow */
+}
+
+/* Style the table inside the cart modal */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Style the table headers */
+.cart-table th {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+}
+
+/* Style the table rows */
+.cart-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Add alternating row colors for better readability */
+.cart-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style the remove button */
+.cart-table button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart-table button:hover {
+    background-color: #ff3333;
+}
+
+/* Style for the total row */
+.cart-table tr:last-child {
+    font-weight: bold;
+}
+
+/* Add spacing around the cart modal */
+.cart-items-container {
+    margin-bottom: 20px;
+}
+
+.cart-table td, .cart-table th {
+    text-align: center; /* Center align text in the table cells */
+}
+
+/* Style for the empty cart message */
+.cart-items-container p {
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+}
+/* Close Cart Modal Button */
+.close-cart-modal {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 50px;
+    color: #333;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-cart-modal:hover {
+    color: #ff0000; /* Change color on hover */
+}
+
+/* Checkout Button */
+.checkout-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%; /* Make it full width on smaller screens */
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.checkout-btn:focus {
+    outline: none; /* Remove outline on focus */
+}
+/* Hero Section Styling */
+.hero-section {
+    height: auto; /* Adjust height based on your preference */
+    background: url('images/3.JPG') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 600px; 
+    padding: 100px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #ff4c4c;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background: #cc0000;
+}
+
+/* Responsive Styles */
+@media (min-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(4, 1fr); /* For larger screens, show 3 columns */
+        gap: 20px;
+    }
+}
+
+/* Media Query for Medium Screens (Between 768px and 1024px) */
+@media (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr); /* Maintain 2 columns for medium screens */
+        gap: 15px;
+    }
+}
+
+/* Media Query for Smaller Screens (Below 768px) */
+@media (max-width: 768px) {
+    .hero-content {
+        max-width: 600px;
+        padding: 200px;
+        border-radius: 10px;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: rgb(22, 19, 19);
+        width: 72%;
+        padding: 100px;
+        height: 150vh;
+    }
+
+    .nav-links li {
+        padding: 25px 0; /* Adds spacing between nav links */
+        
+    }
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .hamburger-container {
+        display: flex;
+        align-items: center;
+        gap: 1px; /* Brings the icons and hamburger closer */
+    }
+
+    .card-container {
+        grid-template-columns: repeat(3, 1fr); /* Ensure 2 products per row on smaller devices */
+        gap: 10px;
+    }
+    
+    .card h1 {
+        font-size: 1rem; /* Smaller font for smaller devices */
+        margin: 8px 0;
+    }
+
+    .card p {
+        font-size: 0.85rem; /* Reduce text size for price */
+        margin-bottom: 10px;
+    }
+
+    .card button {
+        font-size: 0.9rem;
+        padding: 6px 10px; /* Smaller buttons for smaller screens */
+    }
+    
+}
+
+/* Media Query for Extra Small Screens (Below 500px) */
+@media (max-width: 500px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: rgb(224, 24, 24);
+        width: 70%;
+        padding: 20px;
+        height: 150vh;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 products even on very small screens */
+        gap: 8px; /* Slightly reduce the gap for small screens */
+    }
+    .card h1 {
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+
+    .card button {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: rgb(22, 19, 19);
+        width: 70%;
+        padding: 50px;
+        height: 150vh;
+    }
+
+    .nav-links li {
+        padding: 10px 0; /* Adds spacing between nav links */
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+    .hero-content {
+        max-width: 600px;
+        padding: 50px;
+        border-radius: 10px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    .container {
+        width: 70%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: rgb(22, 19, 19);
+        width: 65%;
+        padding: 50px;
+        height: 100vh;
+    }
+
+    .nav-links li {
+        padding: 10px 0; /* Adds spacing between nav links */
+        
+    }
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+    .hero-content {
+        max-width: 500px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .hero-content h1 {
+        font-size: 2.0rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-content p {
+        font-size: 1.0rem;
+        margin-bottom: 20px;
+    }
+    .product-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1001;
+    }
+    .product-modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+        background-color: #fff;
+        padding: 8px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        max-height: 95vh;
+        overflow-y: auto;
+        text-align: center;
+    }
+    .product-modal-content img {
+        width: 100%;
+        height: 270px;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+.contact-form label {
+    margin-top: 10px;
+}
+.contact-form input, .contact-form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.contact-form button:hover {
+    background: #218838;
+}
+.contact-info {
+    text-align: center;
+    margin-top: 20px;
+}
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+}
+.container {
+    width: 70%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+.about, .mission, .team {
+    text-align: center;
+    margin: 20px 0;
+}
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.member {
+    text-align: center;
+    max-width: 200px;
+}

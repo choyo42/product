@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEAKERS THRIFT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Responsive Navbar -->
+<header>
+    <nav class="navbar">
+        <div class="logo">Sneaker thrift</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger-container">
+            <div class="nav-icons">
+                <div class="cart-container" onclick="openCartModal()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+        
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+        <p><strong>Email:</strong> abrahamchol463@gmail.com</p>
+        <p><strong>Phone:</strong> +254 83175424</p>
+        <p><strong>Address:</strong> 21103 Kawangware, Nairobi City, Web</p>
+    </div>
+
+    <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.087249218882!2d36.8164851!3d-1.2863898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d4c4f4c4c7%3A0x3a8b3f6c3b0e78e4!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1712030400000!5m2!1sen!2sus" 
+    allowfullscreen="" 
+    loading="lazy">
+</iframe>
+
+</div>
+
+<div id="cart-modal" class="cart-modal" style="display: none;">
+    <div class="cart-modal-content">
+        <span class="close-cart-modal" onclick="closeCartModal()">&times;</span>
+        <h2 style="text-align: center;">SHOPPING CART</h2>
+        <div id="cart-items"></div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
+
+<script src="script.js">
+     function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEAKERS THRIFT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Responsive Navbar -->
+<header>
+    <nav class="navbar">
+        <div class="logo">Sneakers thrift</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger-container">
+            <div class="nav-icons">
+                <div class="cart-container" onclick="openCartModal()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+                
+                <div class="profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Find Your Perfect Style</h1>
+        <p>Shop the latest trends in fashion at unbeatable prices.</p>
+        <a href="product.html" class="hero-btn">Shop Now</a>
+    </div>
+</div>
+
+    <!-- Search Bar -->
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search for products...">
+</div>
+
+<h1 style="text-align: center;">Featured products</h1>
+<!-- Product Cards -->
+<div class="card-container">
+    <div class="card" onclick="openProductModal('Jordan 1 low Travis Scott', 'images/1.JPG', 20, 'cactus brown', '42', 'Free')">
+        <img src="images/1.JPG" alt="Nike SB Dunk">
+        <h1>Jordan 1 low</h1>
+        <p class="price">$20</p>
+        <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Jordan 1 low', 20)">Add to Cart</button>
+    </div>
+
+    <div class="card" onclick="openProductModal('Nike dunk low ', 'images/2.JPG', 25, 'brown', '44', 'Free within nairobi town CBD')">
+        <img src="images/2.JPG" alt="Adidas Yeezy">
+        <h1>Nike dunk low</h1>
+        <p class="price">$25</p>
+        <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Nike dunk low', 25)">Add to Cart</button>
+    </div>
+
+    <div class="card" onclick="openProductModal('Nike SB dunk', 'images/3.JPG', 25, 'brown', '43', 'Free within nairobi town CBD')">
+        <img src="images/3.JPG" alt="Adidas Yeezy">
+        <h1>Nike SB dunk</h1>
+        <p class="price">$25</p>
+        <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Nike SB dunk', 21)">Add to Cart</button>
+    </div>
+
+    <div class="card" onclick="openProductModal('Nike dunk low michigan varsity', 'images/4.JPG', 25, 'Black', '41', 'Free within nairobi town CBD')">
+        <img src="images/4.JPG" alt="Adidas Yeezy">
+        <h1>Nike dunk low</h1>
+        <p class="price">$25</p>
+        <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Nike dunk low', 23)">Add to Cart</button>
+    </div>
+</div>
+
+
+<!-- Product Modal (Single Instance) -->
+<div id="product-modal" class="product-modal" style="display: none;">
+    <div class="product-modal-content">
+        <!-- Close button calls closeProductModal() -->
+        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <img id="product-img" src="" alt="Product Image">
+        <h2 id="product-name">Product Name</h2>
+        <p><strong>Color:</strong> <span id="product-color"></span></p>
+        <p><strong>Size:</strong> <span id="product-size"></span></p>
+        <button id="add-to-cart-modal" class="add-to-cart" onclick="addToCartFromModal()">Add to Cart</button>
+    </div>
+</div>
+
+<!-- Cart Modal -->
+<div id="cart-modal" class="cart-modal" style="display: none;">
+    <div class="cart-modal-content">
+        <span class="close-cart-modal" onclick="closeCartModal()">&times;</span>
+        <h2 style="text-align: center;">SHOPPING CART</h2>
+        <div id="cart-items"></div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
+
+<script src="script.js">
+     function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+</script>
+</body>
+</html>
